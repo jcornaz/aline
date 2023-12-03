@@ -7,6 +7,8 @@
 //!
 //! `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
 
+use core::ops::{Add, AddAssign, Sub, SubAssign};
+
 /// Alias for `Vector<f32>`
 pub type Vec2 = Vector2<f32>;
 
@@ -19,6 +21,18 @@ pub type IVec2 = Vector2<i32>;
 pub struct Vector2<T> {
     pub x: T,
     pub y: T,
+}
+
+impl Vector2<f32> {
+    pub const ZERO: Self = Self::new(0., 0.);
+    pub const X: Self = Self::new(1., 0.);
+    pub const Y: Self = Self::new(0., 1.);
+}
+
+impl Vector2<i32> {
+    pub const ZERO: Self = Self::new(0, 0);
+    pub const X: Self = Self::new(1, 0);
+    pub const Y: Self = Self::new(0, 1);
 }
 
 impl<T> Vector2<T> {
@@ -51,14 +65,48 @@ impl<T> From<Vector2<T>> for (T, T) {
     }
 }
 
-impl Vector2<f32> {
-    pub const ZERO: Self = Self::new(0., 0.);
-    pub const X: Self = Self::new(1., 0.);
-    pub const Y: Self = Self::new(0., 1.);
+impl<A, B> AddAssign<Vector2<B>> for Vector2<A>
+where
+    A: AddAssign<B>,
+{
+    fn add_assign(&mut self, rhs: Vector2<B>) {
+        self.x += rhs.x;
+        self.y += rhs.y;
+    }
 }
 
-impl Vector2<i32> {
-    pub const ZERO: Self = Self::new(0, 0);
-    pub const X: Self = Self::new(1, 0);
-    pub const Y: Self = Self::new(0, 1);
+impl<A, B> Add<Vector2<B>> for Vector2<A>
+where
+    A: Add<B>,
+{
+    type Output = Vector2<A::Output>;
+    fn add(self, rhs: Vector2<B>) -> Self::Output {
+        Vector2 {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
+}
+
+impl<A, B> SubAssign<Vector2<B>> for Vector2<A>
+where
+    A: SubAssign<B>,
+{
+    fn sub_assign(&mut self, rhs: Vector2<B>) {
+        self.x -= rhs.x;
+        self.y -= rhs.y;
+    }
+}
+
+impl<A, B> Sub<Vector2<B>> for Vector2<A>
+where
+    A: Sub<B>,
+{
+    type Output = Vector2<A::Output>;
+    fn sub(self, rhs: Vector2<B>) -> Self::Output {
+        Vector2 {
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+        }
+    }
 }
