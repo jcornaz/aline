@@ -1,7 +1,7 @@
-#![cfg_attr(docsrs, feature(doc_cfg))]
+#![cfg_attr(docsrs, feature(doc_auto_cfg))]
 #![cfg_attr(not(feature = "std"), no_std)]
 
-//! A simple 2d linear algebra library suitable for `no_std`
+//! A simple 2D linear algebra library suitable for `no_std`
 //!
 //! # Features
 //!
