@@ -29,7 +29,7 @@ unsafe_code = "deny"
 private_interfaces = "warn"
 private_bounds = "warn"
 rust_2018_idioms = "warn"
-missing_docs = "warn"
+missing_docs = "allow"
 
 [lints.clippy]
 exhaustive_enums = "warn"
