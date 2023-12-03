@@ -13,7 +13,7 @@ mod interop {
     mod approx_v05;
 }
 
-use core::ops::{Add, AddAssign, Sub, SubAssign};
+use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
 
 /// Alias for `Vector<f32>`
 pub type Vec2 = Vector2<f32>;
@@ -113,6 +113,56 @@ where
         Vector2 {
             x: self.x - rhs.x,
             y: self.y - rhs.y,
+        }
+    }
+}
+
+impl<A, B> MulAssign<B> for Vector2<A>
+where
+    A: MulAssign<B>,
+    B: Copy,
+{
+    fn mul_assign(&mut self, rhs: B) {
+        self.x *= rhs;
+        self.y *= rhs;
+    }
+}
+
+impl<A, B> Mul<B> for Vector2<A>
+where
+    A: Mul<B>,
+    B: Copy,
+{
+    type Output = Vector2<A::Output>;
+    fn mul(self, rhs: B) -> Self::Output {
+        Vector2 {
+            x: self.x * rhs,
+            y: self.y * rhs,
+        }
+    }
+}
+
+impl<A, B> DivAssign<B> for Vector2<A>
+where
+    A: DivAssign<B>,
+    B: Copy,
+{
+    fn div_assign(&mut self, rhs: B) {
+        self.x /= rhs;
+        self.y /= rhs;
+    }
+}
+
+impl<A, B> Div<B> for Vector2<A>
+where
+    A: Div<B>,
+    B: Copy,
+{
+    type Output = Vector2<A::Output>;
+    fn div(self, rhs: B) -> Self::Output {
+        Vector2 {
+            x: self.x / rhs,
+            y: self.y / rhs,
         }
     }
 }

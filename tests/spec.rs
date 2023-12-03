@@ -23,3 +23,34 @@ fn test_add_sub(
     rest -= a;
     assert_eq!(rest, b);
 }
+
+#[rstest]
+#[case(IVec2::ZERO, 0, IVec2::ZERO)]
+#[case((3, 4), 0, (0, 0))]
+#[case((3, 4), 1, (3, 4))]
+#[case((3, 4), 2, (6, 8))]
+fn test_mul(
+    #[case] a: impl Into<IVec2>,
+    #[case] b: i32,
+    #[case] expected_product: impl Into<IVec2>,
+) {
+    let a = a.into();
+    let expected_product = expected_product.into();
+    assert_eq!(a * b, expected_product);
+    let mut actual_product = a;
+    actual_product *= b;
+    assert_eq!(actual_product, expected_product);
+}
+
+#[rstest]
+#[case(IVec2::ZERO, 1, IVec2::ZERO)]
+#[case((3, 4), 1, (3, 4))]
+#[case((4, 6), 2, (2, 3))]
+fn test_div(#[case] a: impl Into<IVec2>, #[case] b: i32, #[case] expected_ratio: impl Into<IVec2>) {
+    let a = a.into();
+    let expected_ratio = expected_ratio.into();
+    assert_eq!(a / b, expected_ratio);
+    let mut actual_ratio = a;
+    actual_ratio /= b;
+    assert_eq!(actual_ratio, expected_ratio);
+}
