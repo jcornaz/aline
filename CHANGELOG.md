@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 * implement `Default` for `Vector<T>`
+* `IVec2::as_f32` and `Vec2::as_i32` methods to cast from one scalar type to the other
+
 
 ### Documentation
 

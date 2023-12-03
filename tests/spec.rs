@@ -1,4 +1,4 @@
-use aline::IVec2;
+use aline::{IVec2, Vec2};
 use rstest::rstest;
 
 #[rstest]
@@ -53,4 +53,14 @@ fn test_div(#[case] a: impl Into<IVec2>, #[case] b: i32, #[case] expected_ratio:
     let mut actual_ratio = a;
     actual_ratio /= b;
     assert_eq!(actual_ratio, expected_ratio);
+}
+
+#[rstest]
+#[case([1, 2], (1., 2.))]
+fn test_scalar_cast(#[case] integer: impl Into<IVec2>, #[case] float: impl Into<Vec2>) {
+    let integer = integer.into();
+    let float = float.into();
+    assert_eq!(float.as_i32(), integer);
+    #[cfg(feature = "approx_v05")]
+    assert_eq!(integer.as_f32(), float);
 }

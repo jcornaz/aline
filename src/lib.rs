@@ -35,12 +35,32 @@ impl Vector2<f32> {
     pub const ZERO: Self = Self::new(0., 0.);
     pub const X: Self = Self::new(1., 0.);
     pub const Y: Self = Self::new(0., 1.);
+
+    /// Cast scalar types to [`i32`]
+    #[must_use]
+    #[allow(clippy::cast_possible_truncation)]
+    pub fn as_i32(self) -> Vector2<i32> {
+        Vector2 {
+            x: self.x as i32,
+            y: self.y as i32,
+        }
+    }
 }
 
 impl Vector2<i32> {
     pub const ZERO: Self = Self::new(0, 0);
     pub const X: Self = Self::new(1, 0);
     pub const Y: Self = Self::new(0, 1);
+
+    /// Cast scalar types to [`f32`]
+    #[must_use]
+    #[allow(clippy::cast_precision_loss)]
+    pub fn as_f32(self) -> Vector2<f32> {
+        Vector2 {
+            x: self.x as f32,
+            y: self.y as f32,
+        }
+    }
 }
 
 impl<T> Vector2<T> {
