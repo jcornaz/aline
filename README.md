@@ -5,7 +5,7 @@
 [![Crates.io](https://img.shields.io/crates/v/aline)](https://crates.io/crates/aline)
 [![Docs](https://docs.rs/aline/badge.svg)](https://docs.rs/aline)
 
-A simple 2d linear algebra library suitable for `no_std`
+A simple 2D linear algebra library suitable for `no_std` targets
 
 
 ## Maintenance status
@@ -18,8 +18,8 @@ That being said, I also welcome suggestions and contributions.
 
 ## Alternatives
 
-There are many other good linear-algebra crates out there.
-In particular, I find [glam](https://crates.io/crates/glam) to be the very appealing as it supports `no_std` and SIMD.
+There are many other good linear algebra crates out there.
+In particular, I find [glam](https://crates.io/crates/glam) to be very appealing as it supports `no_std` and SIMD.
 
 
 ## MSRV
