@@ -6,7 +6,8 @@
 //! # Features
 //!
 //! `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
-//! `approx_v05`: implementation of [approx v0.5](https://docs.rs/approx/0.5) traits
+//! `serde`: implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
+//! `approx_v05`: implementations of [approx v0.5](https://docs.rs/approx/0.5) traits
 
 mod interop {
     #[cfg(feature = "approx_v05")]
@@ -24,6 +25,7 @@ pub type IVec2 = Vector2<i32>;
 /// Vector type, generic over its scalar type `T`
 #[allow(clippy::exhaustive_structs)]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Vector2<T> {
     pub x: T,
     pub y: T,
