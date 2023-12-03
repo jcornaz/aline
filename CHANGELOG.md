@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+* implement `Default` for `Vector<T>`
+
 ### Documentation
 
 * Better document required feature flags on docs.rs

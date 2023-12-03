@@ -24,7 +24,7 @@ pub type IVec2 = Vector2<i32>;
 
 /// Vector type, generic over its scalar type `T`
 #[allow(clippy::exhaustive_structs)]
-#[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
+#[derive(Debug, Copy, Clone, Default, Eq, PartialEq, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Vector2<T> {
     pub x: T,
