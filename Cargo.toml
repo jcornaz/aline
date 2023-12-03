@@ -17,8 +17,10 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["std"]
 std = []
+approx_v05 = ["dep:approx_v05"]
 
 [dependencies]
+approx_v05 = { package = "approx", version = "0.5.1", default-features = false, optional = true }
 
 [dev-dependencies]
 rstest = { version = "0.18.2", default-features = false }

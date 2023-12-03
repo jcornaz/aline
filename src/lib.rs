@@ -6,6 +6,12 @@
 //! # Features
 //!
 //! `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
+//! `approx_v05`: implementation of [approx v0.5](https://docs.rs/approx/0.5) traits
+
+mod interop {
+    #[cfg(feature = "approx_v05")]
+    mod approx_v05;
+}
 
 use core::ops::{Add, AddAssign, Sub, SubAssign};
 
