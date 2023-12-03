@@ -5,9 +5,9 @@
 //!
 //! # Features
 //!
-//! `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
-//! `serde`: implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
-//! `approx_v05`: implementations of [approx v0.5](https://docs.rs/approx/0.5) traits
+//! * `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
+//! * `serde`: implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
+//! * `approx_v05`: implementations of [approx v0.5](https://docs.rs/approx/0.5) traits
 
 mod interop {
     #[cfg(feature = "approx_v05")]

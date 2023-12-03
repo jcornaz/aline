@@ -7,8 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Documentation
 
-## [0.1.0] - 2023-12-03
+* Fix formatting of the cargo feature list on https://docs.rs/aline
 
 
 ## [0.1.0] - 2023-12-03
@@ -21,5 +22,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 
 [Unreleased]: https://github.com/jcornaz/beancount_parser_2/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/jcornaz/beancount_parser_2/compare/v0.1.0...v0.1.0
 [0.1.0]: https://github.com/jcornaz/aline/compare/...v0.1.0
