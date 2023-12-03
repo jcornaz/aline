@@ -9,7 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
-* Fix formatting of the cargo feature list on https://docs.rs/aline
+* Better document required feature flags on docs.rs
+* Fix formatting of the cargo feature list on docs.rs
+* Fix typos in readme
 
 
 ## [0.1.0] - 2023-12-03
