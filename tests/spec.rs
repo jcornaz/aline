@@ -98,6 +98,6 @@ fn test_dot_product(#[case] v1: IVec2, #[case] v2: IVec2, #[case] expected: i32)
 #[case(Vec2::new(3., 4.), 5.)]
 fn test_magnitude(#[case] vector: Vec2, #[case] expected: f32) {
     assert_abs_diff_eq!(vector.magnitude_squared(), expected * expected);
-    #[cfg(feature = "std")]
+    #[cfg(any(feature = "std", feature = "libm"))]
     assert_abs_diff_eq!(vector.magnitude(), expected);
 }

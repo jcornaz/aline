@@ -17,11 +17,13 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["std"]
 std = []
+libm = ["dep:libm"]
 serde = ["dep:serde"]
 approx_v05 = ["dep:approx_v05"]
 
 [dependencies]
 approx_v05 = { package = "approx", version = "0.5.1", default-features = false, optional = true }
+libm = { version = "0.2.8", default-features = false, optional = true }
 serde = { version = "1.0.193", optional = true, default-features = false, features = ["derive"] }
 
 [dev-dependencies]

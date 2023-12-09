@@ -6,6 +6,7 @@
 //! # Features
 //!
 //! * `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
+//! * `libm`: Alternative math library, that is required for some operations to compile on `no_std`
 //! * `serde`: implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
 //! * `approx_v05`: implementations of [approx v0.5](https://docs.rs/approx/0.5) traits
 
@@ -51,9 +52,9 @@ impl Vector2<f32> {
     /// Consider [`Self::magnitude_squared`] if you can of slightly better performances
     #[must_use]
     #[doc(alias = "length")]
-    #[cfg(feature = "std")]
+    #[cfg(any(feature = "std", feature = "libm"))]
     pub fn magnitude(self) -> f32 {
-        self.magnitude_squared().sqrt()
+        sqrt(self.magnitude_squared())
     }
 }
 
@@ -239,4 +240,14 @@ where
             y: -self.y,
         }
     }
+}
+
+#[cfg(feature = "std")]
+fn sqrt(v: f32) -> f32 {
+    v.sqrt()
+}
+
+#[cfg(all(not(feature = "std"), feature = "libm"))]
+fn sqrt(v: f32) -> f32 {
+    libm::sqrtf(v)
 }
