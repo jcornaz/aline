@@ -69,6 +69,13 @@ impl<T> Vector2<T> {
     }
 }
 
+impl<T: Copy> Vector2<T> {
+    /// Create a vector where both `x` and `y` are the same `value`
+    pub const fn splat(value: T) -> Self {
+        Self { x: value, y: value }
+    }
+}
+
 impl<T> From<[T; 2]> for Vector2<T> {
     fn from([x, y]: [T; 2]) -> Self {
         Self { x, y }

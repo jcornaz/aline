@@ -5,6 +5,7 @@ use rstest::rstest;
 #[case(IVec2::ZERO, IVec2::ZERO, IVec2::ZERO)]
 #[case(IVec2::ZERO, IVec2::X, IVec2::X)]
 #[case((1, 2), [3, 4], IVec2::new(4, 6))]
+#[case(IVec2::splat(1), IVec2::splat(2), IVec2::splat(3))]
 fn test_add_sub(
     #[case] a: impl Into<IVec2>,
     #[case] b: impl Into<IVec2>,
