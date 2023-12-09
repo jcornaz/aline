@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 * Implement `Neg` for `Vector2<T>` where `T: Neg`
 * `dot` product
+* `magnitude_squared` and `magnitude` (the latter requires the `std` feature for now)
 
 
 ## [0.1.2] - 2023-12-09

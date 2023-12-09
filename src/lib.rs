@@ -45,6 +45,16 @@ impl Vector2<f32> {
             y: self.y as i32,
         }
     }
+
+    /// Returns the magnitude (aka length) of the vector
+    ///
+    /// Consider [`Self::magnitude_squared`] if you can of slightly better performances
+    #[must_use]
+    #[doc(alias = "length")]
+    #[cfg(feature = "std")]
+    pub fn magnitude(self) -> f32 {
+        self.magnitude_squared().sqrt()
+    }
 }
 
 impl Vector2<i32> {
@@ -101,12 +111,24 @@ impl<T> From<Vector2<T>> for (T, T) {
 }
 
 impl<A> Vector2<A> {
+    /// Returns the dot product
     pub fn dot<B>(self, other: Vector2<B>) -> <<A as Mul<B>>::Output as Add>::Output
     where
         A: Mul<B>,
         <A as Mul<B>>::Output: Add,
     {
         (self.x * other.x) + (self.y * other.y)
+    }
+
+    /// Returns the square of the magnitude (aka length)
+    ///
+    /// Typically faster than getting the magnitude itself as it is not necessary to perform a square-root
+    pub fn magnitude_squared(self) -> <<A as Mul>::Output as Add>::Output
+    where
+        A: Copy + Mul,
+        <A as Mul>::Output: Add,
+    {
+        self.dot(self)
     }
 }
 

@@ -1,4 +1,5 @@
 use aline::{IVec2, Vec2};
+use approx_v05::assert_abs_diff_eq;
 use rstest::rstest;
 
 #[rstest]
@@ -87,4 +88,16 @@ fn test_neg(#[case] vector: impl Into<IVec2>, #[case] expected: impl Into<IVec2>
 #[case(IVec2::new(2, 3), IVec2::new(4, 5), 23)]
 fn test_dot_product(#[case] v1: IVec2, #[case] v2: IVec2, #[case] expected: i32) {
     assert_eq!(v1.dot(v2), expected);
+}
+
+#[rstest]
+#[case(Vec2::ZERO, 0.0)]
+#[case(Vec2::X, 1.0)]
+#[case(Vec2::Y, 1.0)]
+#[case(Vec2::Y * 2., 2.0)]
+#[case(Vec2::new(3., 4.), 5.)]
+fn test_magnitude(#[case] vector: Vec2, #[case] expected: f32) {
+    assert_abs_diff_eq!(vector.magnitude_squared(), expected * expected);
+    #[cfg(feature = "std")]
+    assert_abs_diff_eq!(vector.magnitude(), expected);
 }
