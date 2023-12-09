@@ -6,7 +6,7 @@
 //! # Features
 //!
 //! * `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
-//! * `libm`: Alternative math library, that is required for some operations to compile on `no_std`
+//! * `libm`: use [libm](https://crates.io/crates/libm) as an alternative core math library. This is required for some methods (i.e. `magnitude`) to be available on `no_std`
 //! * `serde`: implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
 //! * `approx_v05`: implementations of [approx v0.5](https://docs.rs/approx/0.5) traits
 
