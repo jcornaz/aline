@@ -65,3 +65,14 @@ fn test_scalar_cast(#[case] integer: impl Into<IVec2>, #[case] float: impl Into<
     #[cfg(feature = "approx_v05")]
     assert_eq!(integer.as_f32(), float);
 }
+
+#[rstest]
+#[case(IVec2::ZERO, IVec2::ZERO)]
+#[case([1, -2], [-1, 2])]
+#[case(IVec2::X, -IVec2::X)]
+#[case(IVec2::Y, -IVec2::Y)]
+fn test_neg(#[case] vector: impl Into<IVec2>, #[case] expected: impl Into<IVec2>) {
+    let vector = vector.into();
+    assert_eq!(-vector, expected.into());
+    assert_eq!(-(-vector), vector);
+}

@@ -14,7 +14,7 @@ mod interop {
     mod approx_v05;
 }
 
-use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
+use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign};
 
 /// Alias for `Vector<f32>`
 pub type Vec2 = Vector2<f32>;
@@ -192,6 +192,19 @@ where
         Vector2 {
             x: self.x / rhs,
             y: self.y / rhs,
+        }
+    }
+}
+
+impl<T> Neg for Vector2<T>
+where
+    T: Neg,
+{
+    type Output = Vector2<T::Output>;
+    fn neg(self) -> Self::Output {
+        Vector2 {
+            x: -self.x,
+            y: -self.y,
         }
     }
 }

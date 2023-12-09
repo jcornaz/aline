@@ -8,11 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 
+### Added
+
+* Implement `Neg` for `Vector2<T>` where `T: Neg`
+
+
 ## [0.1.2] - 2023-12-09
 
 ### Added
 
-* `Vector::<T>::splat` where `T: Copy` to easily create vector with the same value for `x` and `y`
+* `Vector2::<T>::splat` where `T: Copy` to easily create vector with the same value for `x` and `y`
 
 
 ## [0.1.1] - 2023-12-03
