@@ -76,3 +76,15 @@ fn test_neg(#[case] vector: impl Into<IVec2>, #[case] expected: impl Into<IVec2>
     assert_eq!(-vector, expected.into());
     assert_eq!(-(-vector), vector);
 }
+
+#[rstest]
+#[case(IVec2::ZERO, IVec2::ZERO, 0)]
+#[case(IVec2::X, IVec2::ZERO, 0)]
+#[case(IVec2::X, IVec2::X, 1)]
+#[case(IVec2::X, IVec2::new(1, 1), 1)]
+#[case(IVec2::X, IVec2::Y, 0)]
+#[case(IVec2::X, -IVec2::X, -1)]
+#[case(IVec2::new(2, 3), IVec2::new(4, 5), 23)]
+fn test_dot_product(#[case] v1: IVec2, #[case] v2: IVec2, #[case] expected: i32) {
+    assert_eq!(v1.dot(v2), expected);
+}

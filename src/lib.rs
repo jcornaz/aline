@@ -100,6 +100,16 @@ impl<T> From<Vector2<T>> for (T, T) {
     }
 }
 
+impl<A> Vector2<A> {
+    pub fn dot<B>(self, other: Vector2<B>) -> <<A as Mul<B>>::Output as Add>::Output
+    where
+        A: Mul<B>,
+        <A as Mul<B>>::Output: Add,
+    {
+        (self.x * other.x) + (self.y * other.y)
+    }
+}
+
 impl<A, B> AddAssign<Vector2<B>> for Vector2<A>
 where
     A: AddAssign<B>,

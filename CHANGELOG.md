@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 * Implement `Neg` for `Vector2<T>` where `T: Neg`
+* `dot` product
 
 
 ## [0.1.2] - 2023-12-09
