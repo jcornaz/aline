@@ -10,6 +10,9 @@ description = "A simple 2d linear algebra library suitable for no_std"
 categories = ["no-std", "game-development"]
 keywords = ["vector", "math", "2d", "gamedev", "no_std"]
 
+[badges.maintenance]
+status = "actively-developed"
+
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
