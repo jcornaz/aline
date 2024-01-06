@@ -31,7 +31,7 @@ serde = { version = "1.0.193", optional = true, default-features = false, featur
 
 [dev-dependencies]
 rstest = { version = "0.18.2", default-features = false }
-serde_json = "1.0.108"
+serde_json = "1.0.111"
 approx_v05 = { package = "approx", version = "0.5.1", default-features = false }
 
 [lints.rust]
