@@ -30,7 +30,7 @@ libm = { version = "0.2.8", default-features = false, optional = true }
 serde = { version = "1.0", optional = true, default-features = false, features = ["derive"] }
 
 [dev-dependencies]
-rstest = { version = "0.19.0", default-features = false }
+rstest = { version = "0.21.0", default-features = false }
 serde_json = "1.0"
 approx_v05 = { package = "approx", version = "0.5.1", default-features = false }
 
