@@ -28,13 +28,18 @@ pub type IVec2 = Vector2<i32>;
 #[derive(Debug, Copy, Clone, Default, Eq, PartialEq, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct Vector2<T> {
+    #[allow(missing_docs)]
     pub x: T,
+    #[allow(missing_docs)]
     pub y: T,
 }
 
 impl Vector2<f32> {
+    #[allow(missing_docs)]
     pub const ZERO: Self = Self::new(0., 0.);
+    #[allow(missing_docs)]
     pub const X: Self = Self::new(1., 0.);
+    #[allow(missing_docs)]
     pub const Y: Self = Self::new(0., 1.);
 
     /// Cast scalar types to [`i32`]
@@ -59,8 +64,11 @@ impl Vector2<f32> {
 }
 
 impl Vector2<i32> {
+    #[allow(missing_docs)]
     pub const ZERO: Self = Self::new(0, 0);
+    #[allow(missing_docs)]
     pub const X: Self = Self::new(1, 0);
+    #[allow(missing_docs)]
     pub const Y: Self = Self::new(0, 1);
 
     /// Cast scalar types to [`f32`]
@@ -75,6 +83,7 @@ impl Vector2<i32> {
 }
 
 impl<T> Vector2<T> {
+    #[allow(missing_docs)]
     pub const fn new(x: T, y: T) -> Self {
         Self { x, y }
     }
