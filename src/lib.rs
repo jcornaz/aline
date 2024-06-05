@@ -61,6 +61,18 @@ impl Vector2<f32> {
     pub fn magnitude(self) -> f32 {
         sqrt(self.magnitude_squared())
     }
+
+    /// Returns a normal vector pointing in the same direction or `None` if this vector cannot be normalized (i.e. has a near-zero magniture)
+    #[must_use]
+    #[cfg(any(feature = "std", feature = "libm"))]
+    pub fn normalize(self) -> Option<Self> {
+        let recip = self.magnitude().recip();
+        if recip.is_finite() {
+            Some(self * recip)
+        } else {
+            None
+        }
+    }
 }
 
 impl Vector2<i32> {

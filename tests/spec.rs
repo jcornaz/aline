@@ -101,3 +101,26 @@ fn test_magnitude(#[case] vector: Vec2, #[case] expected: f32) {
     #[cfg(any(feature = "std", feature = "libm"))]
     assert_abs_diff_eq!(vector.magnitude(), expected);
 }
+
+#[rstest]
+#[cfg(any(feature = "std", feature = "libm"))]
+fn test_normalize_zero_vec() {
+    assert_eq!(Vec2::ZERO.normalize(), None);
+}
+
+#[rstest]
+#[cfg(any(feature = "std", feature = "libm"))]
+fn test_normalize_normal(#[values(Vec2::X, Vec2::Y, -Vec2::X, -Vec2::Y)] vector: Vec2) {
+    let normalized = vector.normalize().unwrap();
+    assert_abs_diff_eq!(normalized.x, vector.x);
+    assert_abs_diff_eq!(normalized.y, vector.y);
+}
+
+#[rstest]
+#[cfg(any(feature = "std", feature = "libm"))]
+fn test_normalize() {
+    let normalized = Vec2::new(3., 4.).normalize().unwrap();
+    assert_abs_diff_eq!(normalized.x, 3. / 5.);
+    assert_abs_diff_eq!(normalized.y, 4. / 5.);
+    assert_abs_diff_eq!(normalized.magnitude(), 1.0);
+}
