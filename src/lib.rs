@@ -5,7 +5,7 @@
 //!
 //! # Features
 //!
-//! * `std`: *(enabled by default)* enable use of the standard library. Must be disabled for `no_std` crates.
+//! * `std`: *(enabled by default)* enable use of the standard library. It must be disabled for `no_std` crates.
 //! * `libm`: use [libm](https://crates.io/crates/libm) as an alternative core math library. This is required for some methods (i.e. `magnitude`) to be available on `no_std`
 //! * `serde`: implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
 //! * `approx_v05`: implementations of [approx v0.5](https://docs.rs/approx/0.5) traits
@@ -54,7 +54,7 @@ impl Vector2<f32> {
 
     /// Returns the magnitude (aka length) of the vector
     ///
-    /// Consider [`Self::magnitude_squared`] if you can of slightly better performances
+    /// Consider [`Self::magnitude_squared`] for slightly better performance
     #[must_use]
     #[doc(alias = "length")]
     #[cfg(any(feature = "std", feature = "libm"))]
@@ -62,7 +62,7 @@ impl Vector2<f32> {
         sqrt(self.magnitude_squared())
     }
 
-    /// Returns a normal vector pointing in the same direction or `None` if this vector cannot be normalized (i.e. has a near-zero magniture)
+    /// Returns a normal vector pointing in the same direction or `None` if this vector cannot be normalized (i.e. has a near-zero magnitude)
     #[must_use]
     #[cfg(any(feature = "std", feature = "libm"))]
     pub fn normalize(self) -> Option<Self> {
@@ -144,7 +144,7 @@ impl<A> Vector2<A> {
 
     /// Returns the square of the magnitude (aka length)
     ///
-    /// Typically faster than getting the magnitude itself as it is not necessary to perform a square-root
+    /// Typically faster than getting the magnitude itself as it is not necessary to perform a square root
     pub fn magnitude_squared(self) -> <<A as Mul>::Output as Add>::Output
     where
         A: Copy + Mul,
