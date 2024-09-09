@@ -1,4 +1,4 @@
-allow-branch = ["main"]
+allow-branch = ["main", "v0.1.x"]
 pre-release-commit-message = "release {{version}}"
 
 [[pre-release-replacements]]
