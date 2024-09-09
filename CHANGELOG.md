@@ -7,9 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Documentation
+### Changed
 
-* Typos fixed
+* Replace content of crate by types of `aline` version `1.0.0` ([The Semver Trick"](https://github.com/dtolnay/semver-trick))
 
 
 ## [0.1.4] - 2024-06-05
