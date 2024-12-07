@@ -1,6 +1,6 @@
 # aline
 
-![rustc](https://img.shields.io/badge/rustc-1.74+-blue?logo=rust)
+![rustc](https://img.shields.io/badge/rustc-1.61+-blue?logo=rust)
 [![License](https://img.shields.io/crates/l/aline)](#Unlicense)
 [![Crates.io](https://img.shields.io/crates/v/aline)](https://crates.io/crates/aline)
 [![Docs](https://docs.rs/aline/badge.svg)](https://docs.rs/aline)
@@ -24,7 +24,7 @@ In particular, I find [glam](https://crates.io/crates/glam) to be very appealing
 
 ## MSRV
 
-The minimum supported rust version is currently `1.74`.
+The minimum supported rust version is currently `1.61`.
 
 It will be updated when required, and that will not be considered a breaking change (it can happen in a minor version).
 
