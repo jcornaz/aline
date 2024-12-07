@@ -1,3 +1,4 @@
+#![allow(missing_docs)]
 #![cfg(feature = "serde")]
 
 use aline::IVec2;

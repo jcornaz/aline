@@ -1,3 +1,4 @@
+#![allow(missing_docs)]
 #![cfg(feature = "approx_v05")]
 
 use aline::Vec2;

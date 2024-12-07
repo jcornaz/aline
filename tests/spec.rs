@@ -1,3 +1,4 @@
+#![allow(missing_docs)]
 use aline::{IVec2, Vec2};
 use approx_v05::assert_abs_diff_eq;
 use rstest::rstest;
