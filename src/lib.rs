@@ -263,6 +263,27 @@ where
     }
 }
 
+impl<T> Vector2<T>
+where
+    T: Neg<Output = T>,
+{
+    /// Returns the vector rotated by 90°
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// # use aline::IVec2;
+    /// assert_eq!(IVec2::new(3, 4).perp(), IVec2::new(-4, 3));
+    /// ```
+    #[must_use]
+    pub fn perp(self) -> Self {
+        Self {
+            x: -self.y,
+            y: self.x,
+        }
+    }
+}
+
 #[cfg(feature = "std")]
 fn sqrt(v: f32) -> f32 {
     v.sqrt()

@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 
+### Added
+
+* `Vector2::<T>::perp` where `T: Neg` which returns the vector rotated by 90°
+
+
 ## [1.0.1] - 2024-12-07
 
 ### Dependencies

@@ -125,3 +125,14 @@ fn test_normalize() {
     assert_abs_diff_eq!(normalized.y, 4. / 5.);
     assert_abs_diff_eq!(normalized.magnitude(), 1.0);
 }
+
+#[rstest]
+#[case(IVec2::ZERO, IVec2::ZERO)]
+#[case(IVec2::X, IVec2::Y)]
+#[case(IVec2::Y, -IVec2::X)]
+#[case(-IVec2::X, -IVec2::Y)]
+#[case(-IVec2::Y, IVec2::X)]
+#[case(IVec2::new(3, -4), IVec2::new(4, 3))]
+fn test_perp(#[case] input: IVec2, #[case] expected: IVec2) {
+    assert_eq!(input.perp(), expected);
+}
