@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 
+## [1.1.0] - 2024-12-08
+
+
 ### Added
 
 * `Vector2::<T>::perp` where `T: Neg` which returns the vector rotated by 90°
@@ -77,7 +80,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * `serde` feature: Implementations of `Serialize` and `Deserialize` from [serde](https://docs.rs/serde/1)
 
 
-[Unreleased]: https://github.com/jcornaz/beancount_parser_2/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/jcornaz/beancount_parser_2/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/jcornaz/beancount_parser_2/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/jcornaz/beancount_parser_2/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/jcornaz/beancount_parser_2/compare/v0.1.4...v1.0.0
 [0.1.4]: https://github.com/jcornaz/beancount_parser_2/compare/v0.1.3...v0.1.4
