@@ -15,13 +15,19 @@ mod interop {
     mod approx_v05;
 }
 
-use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign};
+use core::{
+    num::TryFromIntError,
+    ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign},
+};
 
 /// Alias for `Vector<f32>`
 pub type Vec2 = Vector2<f32>;
 
 /// Alias for `Vector<i32>`
 pub type IVec2 = Vector2<i32>;
+
+/// Alias for `Vector<usize>`
+pub type UVec2 = Vector2<usize>;
 
 /// Vector type, generic over its scalar type `T`
 #[allow(clippy::exhaustive_structs)]
@@ -91,6 +97,28 @@ impl Vector2<i32> {
             x: self.x as f32,
             y: self.y as f32,
         }
+    }
+}
+
+impl TryFrom<Vector2<i32>> for Vector2<usize> {
+    type Error = TryFromIntError;
+
+    fn try_from(Vector2 { x, y }: Vector2<i32>) -> Result<Self, Self::Error> {
+        Ok(Self {
+            x: x.try_into()?,
+            y: y.try_into()?,
+        })
+    }
+}
+
+impl TryFrom<Vector2<usize>> for Vector2<i32> {
+    type Error = TryFromIntError;
+
+    fn try_from(Vector2 { x, y }: Vector2<usize>) -> Result<Self, Self::Error> {
+        Ok(Self {
+            x: x.try_into()?,
+            y: y.try_into()?,
+        })
     }
 }
 

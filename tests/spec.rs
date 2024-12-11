@@ -1,5 +1,5 @@
 #![allow(missing_docs)]
-use aline::{IVec2, Vec2};
+use aline::{IVec2, UVec2, Vec2};
 use approx_v05::assert_abs_diff_eq;
 use rstest::rstest;
 
@@ -135,4 +135,16 @@ fn test_normalize() {
 #[case(IVec2::new(3, -4), IVec2::new(4, 3))]
 fn test_perp(#[case] input: IVec2, #[case] expected: IVec2) {
     assert_eq!(input.perp(), expected);
+}
+
+#[test]
+fn can_convert_from_i32_to_usize() {
+    let actual: UVec2 = IVec2::new(1, 2).try_into().unwrap();
+    assert_eq!(actual, UVec2::new(1, 2));
+}
+
+#[test]
+fn can_convert_from_usize_to_i32() {
+    let actual: IVec2 = UVec2::new(1, 2).try_into().unwrap();
+    assert_eq!(actual, IVec2::new(1, 2));
 }

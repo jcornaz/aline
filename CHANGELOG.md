@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+* `UVec2` alias for `Vector2<usize>`
+* implement `TryFrom<IVec2>` for `UVec2` and `TryFrom<UVec2>` for `IVec2`
+
+
 
 ## [1.1.0] - 2024-12-08
 
