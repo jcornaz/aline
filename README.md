@@ -4,17 +4,11 @@
 [![License](https://img.shields.io/crates/l/aline)](#Unlicense)
 [![Crates.io](https://img.shields.io/crates/v/aline)](https://crates.io/crates/aline)
 [![Docs](https://docs.rs/aline/badge.svg)](https://docs.rs/aline)
+![Maintenance](https://img.shields.io/maintenance/passively/2025)
+
 
 A simple 2D linear algebra library suitable for `no_std` targets
 
-
-## Maintenance status
-
-I made this project for my personal use. I'll be happy if it can be useful to anyone else, but there are a few things to keep in mind:
-* I only write documentation for my "future self", which may not be enough for people who are not in my head.
-* The project may never be "feature complete" as I only add new features when I need them.
-
-That being said, I also welcome suggestions and contributions.
 
 ## Alternatives
 
