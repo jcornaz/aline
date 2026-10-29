@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/crates/l/aline)](#Unlicense)
 [![Crates.io](https://img.shields.io/crates/v/aline)](https://crates.io/crates/aline)
 [![Docs](https://docs.rs/aline/badge.svg)](https://docs.rs/aline)
-![Maintenance](https://img.shields.io/maintenance/passively/2025)
+![Maintenance](https://img.shields.io/maintenance/passively/2026)
 
 
 A simple 2D linear algebra library suitable for `no_std` targets
